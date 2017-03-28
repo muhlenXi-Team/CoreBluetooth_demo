@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4EA5FB591E83BFF0000A45CB /* XYJConversionTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EA5FB581E83BFF0000A45CB /* XYJConversionTool.m */; };
 		4EEC86F01DFE3E0A00D078F7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC86EF1DFE3E0A00D078F7 /* main.m */; };
 		4EEC86F31DFE3E0A00D078F7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC86F21DFE3E0A00D078F7 /* AppDelegate.m */; };
 		4EEC86F61DFE3E0A00D078F7 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4EEC86F51DFE3E0A00D078F7 /* ViewController.m */; };
@@ -16,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4EA5FB571E83BFF0000A45CB /* XYJConversionTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XYJConversionTool.h; sourceTree = "<group>"; };
+		4EA5FB581E83BFF0000A45CB /* XYJConversionTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XYJConversionTool.m; sourceTree = "<group>"; };
 		4EEC86EB1DFE3E0A00D078F7 /* CoreBluetoothDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CoreBluetoothDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4EEC86EF1DFE3E0A00D078F7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4EEC86F11DFE3E0A00D078F7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -39,6 +42,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4EA5FB561E83BFF0000A45CB /* XYJConversionTool */ = {
+			isa = PBXGroup;
+			children = (
+				4EA5FB571E83BFF0000A45CB /* XYJConversionTool.h */,
+				4EA5FB581E83BFF0000A45CB /* XYJConversionTool.m */,
+			);
+			path = XYJConversionTool;
+			sourceTree = "<group>";
+		};
 		4EEC86E21DFE3E0A00D078F7 = {
 			isa = PBXGroup;
 			children = (
@@ -58,6 +70,7 @@
 		4EEC86ED1DFE3E0A00D078F7 /* CoreBluetoothDemo */ = {
 			isa = PBXGroup;
 			children = (
+				4EA5FB561E83BFF0000A45CB /* XYJConversionTool */,
 				4EEC86F11DFE3E0A00D078F7 /* AppDelegate.h */,
 				4EEC86F21DFE3E0A00D078F7 /* AppDelegate.m */,
 				4EEC86F41DFE3E0A00D078F7 /* ViewController.h */,
@@ -152,6 +165,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4EEC86F61DFE3E0A00D078F7 /* ViewController.m in Sources */,
+				4EA5FB591E83BFF0000A45CB /* XYJConversionTool.m in Sources */,
 				4EEC86F31DFE3E0A00D078F7 /* AppDelegate.m in Sources */,
 				4EEC86F01DFE3E0A00D078F7 /* main.m in Sources */,
 			);
@@ -314,6 +328,7 @@
 				4EEC87041DFE3E0A00D078F7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

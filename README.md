@@ -31,6 +31,12 @@ self.centralManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil]
 [central scanForPeripheralsWithServices:nil options:nil];
 ```
 
+*需要实时获取 RSSI 和 广播的数据，需要扫描的时候添加 options ！*
+
+```objc
+[self.centralManager scanForPeripheralsWithServices:nil options:@{CBCentralManagerScanOptionAllowDuplicatesKey : @(YES)}];
+```
+
 #### 连接外设
 
 ```objc

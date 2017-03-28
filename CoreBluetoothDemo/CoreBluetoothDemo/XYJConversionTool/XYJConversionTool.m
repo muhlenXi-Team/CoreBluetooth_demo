@@ -26,14 +26,6 @@
     return [self convertAlphabetToUint8:high] * 16 + [self convertAlphabetToUint8:low];
 }
 
-// 10进制整数转为16进制字符串  187 -> @"BB"
-+ (NSString *) convertDecimalToHexadecimal:(uint8_t) value
-{
-    uint8_t high = value / 16;
-    uint8_t low = value % 16;
-    return [NSString stringWithFormat:@"%@%@",[self convertUint8ToUppercaseAlphabet:high],[self convertUint8ToUppercaseAlphabet:low]];
-}
-
 // 16进制字符串转10进制数  @"A" -> 10
 + (uint8_t) convertAlphabetToUint8:(NSString *) alphabet
 {
@@ -73,71 +65,35 @@
     return -1;
 }
 
-// 数字转16进制字母  10 -> @"A"
-+ (NSString *) convertUint8ToUppercaseAlphabet:(uint8_t) value
+//将十进制整数转化为十六进制字符串
++ (NSString *) convertllintToHexString:(long long int) value
 {
-    NSString * str = nil;
-    if (value >= 10) {
-        switch (value) {
-            case 10:
-                str = @"A";
-                break;
-            case 11:
-                str = @"B";
-                break;
-            case 12:
-                str = @"C";
-                break;
-            case 13:
-                str = @"D";
-                break;
-            case 14:
-                str = @"E";
-                break;
-            case 15:
-                str = @"F";
-                break;
-            default:
-                break;
-        }
-    } else {
-        str = [NSString stringWithFormat:@"%d",value];
-    }
-    return str;
+    NSString *string = [NSString stringWithFormat:@"%llx",value];
+    return [string uppercaseString];
 }
 
-//将十进制转化为十六进制
-+ (NSString *) ToHex:(long long int)tmpid
+// NSData 转换成十六进制字符串
++ (NSString *)convertDataToHexStr:(NSData *)data
 {
-    NSString * nLetterValue;
-    NSString *str = @"";
-    long long int ttmpig;
-    for (int i = 0; i< 9; i++) {
-        ttmpig= tmpid % 16;
-        tmpid= tmpid / 16;
-        switch (ttmpig)
-        {
-            case 10:
-                nLetterValue =@"A";break;
-            case 11:
-                nLetterValue =@"B";break;
-            case 12:
-                nLetterValue =@"C";break;
-            case 13:
-                nLetterValue =@"D";break;
-            case 14:
-                nLetterValue =@"E";break;
-            case 15:
-                nLetterValue =@"F";break;
-            default:nLetterValue=[[NSString alloc]initWithFormat:@"%lli",ttmpig];
-                
-        }
-        str = [nLetterValue stringByAppendingString:str];
-        if (tmpid == 0) {
-            break;
-        }
+    if (!data || [data length] == 0)
+    {
+        return @"";
     }
-    return str;
+    NSMutableString *string = [[NSMutableString alloc] initWithCapacity:[data length]];
+    
+    [data enumerateByteRangesUsingBlock:^(const void *bytes, NSRange byteRange, BOOL *stop) {
+        unsigned char *dataBytes = (unsigned char*)bytes;
+        for (NSInteger i = 0; i < byteRange.length; i++) {
+            NSString *hexStr = [NSString stringWithFormat:@"%x", (dataBytes[i]) & 0xff];
+            if ([hexStr length] == 2) {
+                [string appendString:hexStr];
+            } else {
+                [string appendFormat:@"0%@", hexStr];
+            }
+        }
+    }];
+    return string;
 }
+
 
 @end
